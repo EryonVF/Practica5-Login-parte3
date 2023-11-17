@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block miCSS %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='../../static/css/login.css') }}">
+{% endblock %}
+
+{% block titulo %}Login{% endblock %}
+
+{% block cuerpo %}
+<div class="login-container">
+    <h1 class="login-title">Login</h1>
+    <form action="/login" method="POST" class="login-form my-4">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+    {% block mensajes %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-danger">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    {% endblock %}
+</div>
+{% endblock %}

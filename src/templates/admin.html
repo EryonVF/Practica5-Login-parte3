@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block miCSS %}
+  <style>
+    /* Estilo para quitar el cuadro gris y darle formato al nombre */
+    h1 {
+      margin: 0; /* Elimina el margen predeterminado */
+      color: #333; /* Color del texto */
+    }
+
+    /* Animación de acercamiento al nombre */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      animation: fadeInUp 0.8s ease-out; /* Aplica la animación al nombre */
+    }
+  </style>
+
+  <!-- Enlazar Bootstrap (puedes ajustar la URL según tu configuración) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% endblock %}
+
+{% block titulo %}Home{% endblock %}
+
+{% block cuerpo %}
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="text-center">Bienvenido Mr  {{ current_user.fullname }}</h1>
+          </div>
+          <div class="card-body">
+            <!-- Contenido adicional si es necesario -->
+          </div>
+          <div class="card-footer text-center">
+            <a class="btn btn-danger" href="{{ url_for('logout') }}" onclick="logOut()">LogOut</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="container mt-3">
+      <div class="alert alert-warning">
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+{% endwith %}
+
+<script>
+function logOut() {
+    // Agrega un registro de log al hacer clic en Logout
+    console.log("Usuario ha hecho Logout");
+}
+</script>
