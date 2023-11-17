@@ -12,14 +12,14 @@ Las sesiones permiten que los sitios web recuerden la información sobre un usua
 1. Ejecuta la aplicación Flask:
 
    ```bash
-   python app.py
+   flask run
    ```
 
 2. Abre un navegador web y accede a `http://127.0.0.1:5000/` para ir a la página de inicio de sesión.
 
-3. Utiliza el nombre de usuario y la contraseña proporcionados para iniciar sesión.
+3. Utiliza el nombre de usuario y la contraseña que asignamos en la base de datos para iniciar sesión.
 
-4. Explora las páginas de inicio y administrador. La funcionalidad de cierre de sesión está disponible.
+4. Ambas paginas puedne verse similares en ambos roles solo en administrador se le agrego la etiqueta 'Mr' antes del nombre.
 
 ### Estructura del Proyecto
 
